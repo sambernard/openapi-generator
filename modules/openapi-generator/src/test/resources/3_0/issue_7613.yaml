@@ -76,7 +76,7 @@ paths:
     post:
       tags:
         - additional_properties
-      operationId: arrayWithValidationsInItems
+      operationId: arrayWithValidationsInItemsRef
       parameters:
         - name: additionalPropertiesUnset
           in: query
@@ -127,7 +127,7 @@ paths:
     post:
       tags:
         - additional_properties
-      operationId: arrayWithValidationsInItems
+      operationId: arrayWithValidationsInItems2
       parameters:
         - name: additionalPropertiesUnset
           in: query
@@ -321,6 +321,7 @@ components:
           type: object
           additionalProperties:
             type: string
+<<<<<<< HEAD
     ObjectWithOptionalAndRequiredProps:
       type: object
       properties:
@@ -355,3 +356,6 @@ components:
             - a
             - b
   securitySchemes: {}
+=======
+  securitySchemes: {}
+>>>>>>> repeat_build_failure
