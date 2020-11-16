@@ -15,7 +15,8 @@ build:
     - rm /etc/apt/sources.list.d/jonathonf-ubuntu-backports-xenial.list 
     # 
     - java -version
-    - mvn --no-snapshot-updates --quiet clean install -Dmaven.javadoc.skip=true
+    - mvn --no-snapshot-updates --quiet clean install -Dmaven.javadoc.skip=true -DskipTests
+    - /bin/bash bin/utils/ensure-up-to-date
     # ensure all modifications created by 'mature' generators are in the git repo
     # below move to CircleCI ./bin/utils/ensure-up-to-date
     # prepare environment for tests
