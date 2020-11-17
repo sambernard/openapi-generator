@@ -190,10 +190,22 @@ export const {{classname}}AxiosParamCreator = function (configuration?: Configur
     {{/bodyParam}}
             const queryParameters = new URLSearchParams(localVarUrlObj.search);
             for (const key in localVarQueryParameter) {
-                queryParameters.set(key, localVarQueryParameter[key]);
+                if(Array.isArray(localVarQueryParameter[key])) {
+                    localVarQueryParameter[key].forEach((queryParam: string) => {
+                        queryParameters.append(key, queryParam)
+                    })
+                } else {
+                    queryParameters.set(key, localVarQueryParameter[key]);
+                }
             }
             for (const key in options.query) {
-                queryParameters.set(key, options.query[key]);
+                if(Array.isArray(options.query[key])) {
+                    options.query[key].forEach((queryParam: string) => {
+                        queryParameters.append(key, queryParam)
+                    })
+                } else {
+                    queryParameters.set(key, options.query[key]);
+                }
             }
             localVarUrlObj.search = (new URLSearchParams(queryParameters)).toString();
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
